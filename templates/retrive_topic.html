@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <title>retrive_topic</title>
+</head>
+<body>
+    <center>
+        <h1>retrive_topic</h1>
+        <form method="POST" multiple class="form">
+            {% csrf_token %}
+            <label for="tn">Topic_name</label>
+                <select name="tn" id="tn">
+                     <option value="">...option...</option>
+                         {% for i in topic %}
+                                <option value="{{i}}">{{i.topic_name}}</option>
+
+                        {% endfor %}
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Retrive-topic">
+        </form>
+    </center>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
+</body>
+</html>

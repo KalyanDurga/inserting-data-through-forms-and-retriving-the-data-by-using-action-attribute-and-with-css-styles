@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <title>insert_webpage</title>
+</head>
+<body>
+    <center>
+        <h1>insert_webpage</h1>
+    <form method="POST" class="form">
+        {% csrf_token %}
+
+        <label for="tn">Topic-Name</label>
+        <select name="tn" id="tn">
+            <option value="">...option...</option>
+            {% for i in topic %}
+                <option value="{{i}}">{{i.topic_name}}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="n">Name</label>
+        <input type="text" name="n" id="n"><br><br>
+
+        <label for="u">URL</label>
+        <input type="text" name="u" id="u"><br><br>
+
+        <input type="submit" value="Insert Webpage">
+    </form>
+    </center>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <title>retrive_accessrecord_radio</title>
+</head>
+<body>
+    <center>
+        <h1>retrive_accessrecord_radio</h1>
+        <form  method="POST" action="{% url 'retrive_accessrecord' %}" class="form">
+            {% csrf_token %}
+            <label for="n">NAME</label><br>
+            {% for i in access %}
+            <label for="n">{{i.name}}</label>
+            <input type="radio" name="n" id="n" value="{{i}}"><br>
+            {% endfor %}
+
+            <input type="submit" value="Retrive Data">
+        </form>
+    </center>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <title>retrive_topic_radio</title>
+</head>
+<body>
+    <center>
+        <h1>retrive_topic_radio</h1>
+        <form action="{% url 'retrive_topic' %}" method="POST" class="form">
+            {% csrf_token %}
+            <label for="tn">Topic_name</label>
+
+            {% for i in topic %}
+                <label for="tn">{{i.topic_name}}</label>
+                <input type="radio" name="tn" id="tn" value="{{i}}"><br>
+            {% endfor %}
+
+            <input type="submit" value="retrive Topic">
+        </form>
+    </center>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
+</body>
+</html>

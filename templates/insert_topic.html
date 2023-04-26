@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <title>insert_topic</title>
+</head>
+<body>
+    <center>
+        <h1>insert_topic</h1>
+
+        <form method="POST" class="form" >
+            {% csrf_token %}
+            <label for="tn">Topic-name</label>
+            <input type="text" name="tn" id="tn"><br><br>
+
+            <input type="submit" value="Insert Data">
+
+        </form>
+
+    </center>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
+</body>
+</html>
